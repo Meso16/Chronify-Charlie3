@@ -1,1 +1,36 @@
-All styling
+.calender{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 20px;
+}
+
+.day, .date{
+    text-align: center;
+    padding: 10px;
+}
+
+.day{
+    font-weight: bold;
+    background-color: rgb(224, 140, 154);
+    color:white;
+    padding:10px;
+}
+
+.date {
+    border:1px solid#ccc;
+    height:100px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.event{
+    font-size: 12px;
+    background: white;
+    margin-top: 3px;
+    padding: 2px;
+}
+.active{
+    background-color: #ffccd5;
+    border: 2px solid red;
+}
