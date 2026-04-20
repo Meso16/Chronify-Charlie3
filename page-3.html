@@ -1,1 +1,150 @@
-Third page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronify — Add Event</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">Chron<span>ify</span></a>
+      <ul>
+        <li><a href="index.html">Home page</a></li>
+        <li><a href="day-overview.html">Day overview</a></li>
+        <li><a href="add-event.html" class="active">Adding events</a></li>
+        <li><a href="calendar.html">Completed calendar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <section>
+      <div class="section-label">Add event</div>
+
+      <div class="success-banner" id="success-banner">
+        Event saved! Head to the calendar to see it.
+      </div>
+    </section>
+
+    <!-- BASICS -->
+    <section class="form-card">
+      <div class="field">
+        <label for="f-title">Event title</label>
+        <input type="text" id="f-title" placeholder="e.g. Team standup" oninput="updatePreview()">
+      </div>
+
+      <div class="field">
+        <label>Category</label>
+        <div class="cat-opts">
+          <button class="catopt sel-work" data-cat="Work" onclick="selCat(this)">Work</button>
+          <button class="catopt" data-cat="Focus" onclick="selCat(this)">Focus</button>
+          <button class="catopt" data-cat="Personal" onclick="selCat(this)">Personal</button>
+          <button class="catopt" data-cat="Social" onclick="selCat(this)">Social</button>
+          <button class="catopt" data-cat="Break" onclick="selCat(this)">Break</button>
+          <button class="catopt" data-cat="Other" onclick="selCat(this)">Other</button>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field no-margin">
+          <label for="f-date">Date</label>
+          <input type="date" id="f-date" oninput="updatePreview()">
+        </div>
+        <div class="field no-margin">
+          <label for="f-loc">Location (optional)</label>
+          <input type="text" id="f-loc" placeholder="e.g. Room 204, Zoom">
+        </div>
+      </div>
+
+      <div class="row2 top-gap">
+        <div class="field no-margin">
+          <label for="f-start">Start time</label>
+          <input type="time" id="f-start" oninput="updatePreview()">
+        </div>
+        <div class="field no-margin">
+          <label for="f-end">End time</label>
+          <input type="time" id="f-end" oninput="updatePreview()">
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONALIZATION -->
+    <section class="form-card">
+      <div class="field">
+        <label>Colour tag</label>
+        <div class="color-row" id="color-row">
+          <div class="cdot sel" data-color="#1D9E75" onclick="selColor(this)"></div>
+          <div class="cdot" data-color="#378ADD" onclick="selColor(this)"></div>
+          <div class="cdot" data-color="#D4537E" onclick="selColor(this)"></div>
+          <div class="cdot" data-color="#7F77DD" onclick="selColor(this)"></div>
+          <div class="cdot" data-color="#BA7517" onclick="selColor(this)"></div>
+          <div class="cdot" data-color="#888780" onclick="selColor(this)"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Repeat</label>
+        <div class="pill-opts">
+          <button class="pillopt sel" onclick="selPill(this)">None</button>
+          <button class="pillopt" onclick="selPill(this)">Daily</button>
+          <button class="pillopt" onclick="selPill(this)">Weekly</button>
+          <button class="pillopt" onclick="selPill(this)">Biweekly</button>
+          <button class="pillopt" onclick="selPill(this)">Monthly</button>
+        </div>
+      </div>
+
+      <div class="field no-margin">
+        <label>Reminder</label>
+        <div class="pill-opts">
+          <button class="pillopt sel" onclick="selPill(this)">None</button>
+          <button class="pillopt" onclick="selPill(this)">5 min before</button>
+          <button class="pillopt" onclick="selPill(this)">15 min before</button>
+          <button class="pillopt" onclick="selPill(this)">30 min before</button>
+          <button class="pillopt" onclick="selPill(this)">1 hr before</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTES -->
+    <section class="form-card">
+      <div class="field no-margin">
+        <label for="f-notes">Notes (optional)</label>
+        <textarea id="f-notes" placeholder="Any extra details..."></textarea>
+      </div>
+    </section>
+
+    <!-- PREVIEW -->
+    <section class="preview-card" id="preview-card">
+      <div class="preview-label">Preview</div>
+      <div class="preview-evt">
+        <div class="preview-bar" id="preview-bar"></div>
+        <div>
+          <div class="preview-title" id="preview-title"></div>
+          <div class="preview-meta" id="preview-meta"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="form-actions">
+      <button class="btn-ghost" onclick="clearForm()">Clear</button>
+      <button class="btn-save" id="btn-save" onclick="saveEvent()">Save event</button>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built by <strong>Jerome Winston</strong> · Chronify team</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
