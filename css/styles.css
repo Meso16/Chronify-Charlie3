@@ -1,4 +1,4 @@
-.calender{
+calender{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
@@ -12,7 +12,7 @@
 
 .day{
     font-weight: bold;
-    background-color: rgb(224, 140, 154);
+    background-color: rgb(111, 176, 123);
     color:white;
     padding:10px;
 }
@@ -31,8 +31,45 @@
     padding: 2px;
 }
 .active{
-    background-color: #ffccd5;
-    border: 2px solid red;
+    background-color: #3c7f41;
+    border: 2px solid rgb(46, 156, 55);
+}
+
+.calender{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 20px;
+}
+
+.day, .date{
+    text-align: center;
+    padding: 10px;
+}
+
+.day{
+    font-weight: bold;
+    background-color: rgb(117, 150, 110);
+    color:rgb(72, 91, 79);
+    padding:10px;
+}
+
+.date {
+    border:1px solid#ccc;
+    height:100px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.event{
+    font-size: 12px;
+    background: white;
+    margin-top: 3px;
+    padding: 2px;
+}
+.active{
+    background-color: #95d5c7;
+    border: 2px solid rgb(207, 222, 218);
 }
 /* RESET */
 *, *::before, *::after {
