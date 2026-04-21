@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronify — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>  
+<body>
+
+ <nav>
+    < div class ="nav-brand">
+      <div class="nav-logo">CY</div>
+      <span class="nav-title">Chronify</span>
+    </div>
+    < ul class= "nav-links">
+      <li><a href="index.html" class="active">Dashboard</a></li>
+      <li><a href="habits.html">Habits</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="page-header">
+      <h1>Dashboard</h1>
+      <p>Sunday, April 19, 2026 — Texas Tech</p>
+    </section>
+
+    <section class="stats-row" aria-label="Summary statistics">
+      <div class="stat-card">
+        <div class="stat-label">Habit Streak</div>
+        <div class="stat-val">12</div>
+        <div class="stat-sub">days in a row</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Today's Habits</div>
+        <div class="stat-val" id="stat-done">3/5</div>
+        <div class="stat-sub">completed today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Weekly Score</div>
+        <div class="stat-val">78%</div>
+        <div class="stat-sub">above average</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Classes Today</div>
+        <div class="stat-val">3</div>
+        <div class="stat-sub">next at 2:00 PM</div>
+      </div>
+    </section>
+
+    <div class="main-grid">
+
+      <div class="left-col">
+
+        <section class="card" aria-label="Monthly calendar">
+          <div class="cal-nav">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)" aria-label="Previous month">&#8249;</button>
+            <div class="cal-month" id="month-label">APRIL 2026</div>
+            <button class="cal-nav-btn" onclick="changeMonth(1)" aria-label="Next month">&#8250;</button>
+          </div>
+          <div class="cal-days-header" aria-hidden="true">
+            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#CC0000"></div>Today</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#e8f5e9;border:1px solid #4caf50"></div>Habits done</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#fff0f0;border:1px solid #CC0000"></div>Class day</div>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Today's schedule">
+          <div class="card-title">Today's Schedule</div>
+          <div class="schedule-list">
+            <div class="event">
+              <div class="event-time">8:00 AM</div>
+              <div class="event-dot" style="background:#4caf50"></div>
+              <div class="event-body">
+                <div class="event-title">Morning workout</div>
+                <span class="event-tag tag-habit">Habit</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">10:00 AM</div>
+              <div class="event-dot" style="background:#CC0000"></div>
+              <div class="event-body">
+                <div class="event-title">ENGR 1340 — Engineering Design</div>
+                <span class="event-tag tag-class">Class</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">12:00 PM</div>
+              <div class="event-dot" style="background:#4caf50"></div>
+              <div class="event-body">
+                <div class="event-title">Lunch + no-phone block</div>
+                <span class="event-tag tag-habit">Habit</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">2:00 PM</div>
+              <div class="event-dot" style="background:#CC0000"></div>
+              <div class="event-body">
+                <div class="event-title">ENGR 3350 — Thermodynamics</div>
+                <span class="event-tag tag-class">Class</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">4:00 PM</div>
+              <div class="event-dot" style="background:#1565c0"></div>
+              <div class="event-body">
+                <div class="event-title">Team design sprint meeting</div>
+                <span class="event-tag tag-team">Team</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">9:00 PM</div>
+              <div class="event-dot" style="background:#4caf50"></div>
+              <div class="event-body">
+                <div class="event-title">Evening reading wind-down</div>
+                <span class="event-tag tag-habit">Habit</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="right-col">
+
+        <section class="card" aria-label="Today's habits">
+          <div class="card-title">Today's Habits</div>
+          <div class="habits-list">
+            <div class="habit-item" onclick="toggleHabit(0)">
+              <div class="habit-check checked" id="h0"><div class="checkmark"></div></div>
+              <div class="habit-name">Morning workout</div>
+              <div class="habit-streak">12d</div>
+            </div>
+            <div class="habit-item" onclick="toggleHabit(1)">
+              <div class="habit-check checked" id="h1"><div class="checkmark"></div></div>
+              <div class="habit-name">8 glasses of water</div>
+              <div class="habit-streak">7d</div>
+            </div>
+            <div class="habit-item" onclick="toggleHabit(2)">
+              <div class="habit-check checked" id="h2"><div class="checkmark"></div></div>
+              <div class="habit-name">No-phone lunch</div>
+              <div class="habit-streak">5d</div>
+            </div>
+            <div class="habit-item" onclick="toggleHabit(3)">
+              <div class="habit-check" id="h3"><div class="checkmark"></div></div>
+              <div class="habit-name">30 min study block</div>
+              <div class="habit-streak">3d</div>
+            </div>
+            <div class="habit-item" onclick="toggleHabit(4)">
+              <div class="habit-check" id="h4"><div class="checkmark"></div></div>
+              <div class="habit-name">Evening reading</div>
+              <div class="habit-streak">9d</div>
+            </div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-bar">
+              <div class="progress-fill" id="habit-bar" style="width:60%"></div>
+            </div>
+            <div class="progress-labels">
+              <span id="progress-text">3 of 5 done</span>
+              <span id="progress-pct">60%</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Weekly habit breakdown">
+          <div class="card-title">This Week</div>
+          <div class="week-rows">
+            <div class="week-row"><div class="week-day">Mon</div><div class="week-bar-bg"><div class="week-bar-fill" style="width:100%"></div></div><div class="week-score">5/5</div></div>
+            <div class="week-row"><div class="week-day">Tue</div><div class="week-bar-bg"><div class="week-bar-fill" style="width:80%"></div></div><div class="week-score">4/5</div></div>
+            <div class="week-row"><div class="week-day">Wed</div><div class="week-bar-bg"><div class="week-bar-fill" style="width:60%"></div></div><div class="week-score">3/5</div></div>
+            <div class="week-row"><div class="week-day">Thu</div><div class="week-bar-bg"><div class="week-bar-fill perfect" style="width:100%"></div></div><div class="week-score">5/5</div></div>
+            <div class="week-row"><div class="week-day">Fri</div><div class="week-bar-bg"><div class="week-bar-fill" style="width:40%"></div></div><div class="week-score">2/5</div></div>
+            <div class="week-row"><div class="week-day">Sat</div><div class="week-bar-bg"><div class="week-bar-fill" style="width:80%"></div></div><div class="week-score">4/5</div></div>
+            <div class="week-row"><div class="week-day">Sun</div><div class="week-bar-bg"><div class="week-bar-fill" style="width:60%"></div></div><div class="week-score">3/5</div></div>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Team members snapshot">
+          <div class="card-title">Team Members</div>
+          <div>
+            <div class="team-row">
+              <div class="avatar" style="background:#fff0f0;color:#CC0000">MO</div>
+              <div>
+                <div class="team-name">Meso.</div>
+                <div class="team-status"><span class="status-dot" style="background:#4caf50"></span>4/5 habits</div>
+              </div>
+            </div>
+            <div class="team-row">
+              <div class="avatar" style="background:#e3f2fd;color:#1565c0">JW</div>
+              <div>
+                <div class="team-name">Jerome Winston</div>
+                <div class="team-status"><span class="status-dot" style="background:#4caf50"></span>5/5 habits</div>
+              </div>
+            </div>
+            <div class="team-row">
+              <div class="avatar" style="background:#e8f5e9;color:#2e7d32">TK</div>
+              <div>
+                <div class="team-name">Tyler K.</div>
+                <div class="team-status"><span class="status-dot" style="background:#ff9800"></span>2/5 habits</div>
+              </div>
+            </div>
+            <div class="team-row">
+              <div class="avatar" style="background:#f3e5f5;color:#6a1b9a">AL</div>
+              <div>
+                <div class="team-name">Ava L.</div>
+                <div class="team-status"><span class="status-dot" style="background:#4caf50"></span>5/5 habits</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>Chronify &copy; 2026 — Texas Tech University</span>
+    <span> — <span class="accent">Team Chronify</span></span>
+  </footer>
+
+  <script src="js/calendar.js"></script>
+  <script src="js/habits.js"></script>
+</body>
+</html>
