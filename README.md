@@ -1,4 +1,4 @@
- Project 2
+### Project 2
 ## Team Name/Number: [Chronify]
 ## Team Members
 
