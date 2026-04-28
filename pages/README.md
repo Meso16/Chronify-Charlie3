@@ -1,5 +1,5 @@
 ### Project 2
-## Team Name/Number: [Chronify]
+## Tean Name (Chronify)
 ## Team Members
 
 - Mmesomachi
